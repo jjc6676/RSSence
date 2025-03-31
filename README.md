@@ -112,7 +112,7 @@ Use this space to show useful examples of how a project can be used. Additional 
 
 Have an idea for a cool feature? Let us know!
 
-See the [open issues](https://github.com/silveralcid/RSSence/issues) for a full list of proposed features (and known issues).
+Add an feature or issue request, see [open issues](https://github.com/silveralcid/RSSence/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
