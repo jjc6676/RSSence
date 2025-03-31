@@ -77,9 +77,11 @@ RSSence was created in response to a request on **r/SomebodyMakeThis**, bringing
 
 With the resurgence of RSS as a powerful, independent way to follow the web, RSSence aims to make consuming news both functional and aesthetically pleasing. Whether you're working, relaxing, or just want an elegant, ever-changing display of updates, RSSence turns idle screens into something useful and beautiful.
 
-Got a brilliant idea but no way to build it? Let’s make it happen! At [Silver Spark Studio](https://silverspark.studio/), we’re a fresh software development agency kicking off our journey by giving back. We’re looking for exciting micro-SaaS ideas—and if they benefit the general public, we’ll bring them to life for free or at a steep discount. Best of all, everything we create will be open-source, so your idea can grow and thrive. Let’s spark something great together!
+Got a brilliant idea but no way to build it? Let’s make it happen! At [Silver Spark Studio](https://silverspark.studio/), we’re a fresh software development agency kicking off our journey by giving back. We’re looking for exciting micro-SaaS ideas—and if they benefit the general public, we’ll bring them to life for free or at a steep discount. Best of all, everything we create will be open-source, so your idea can grow and thrive. 
 
-Get in touch with us at [hello@silverspark.studio](mailto:hello@silverspark.studio)
+### Let’s spark something great together!
+
+Get in touch with us at [hello@silverspark.studio](mailto:hello@silverspark.studio)!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -150,8 +152,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Silver Alcid - [@silveralcid](https://twitter.com/silveralcid) -
-
+Silver Alcid - [@silveralcid](https://twitter.com/silveralcid) | [silver@silverspark.studio](mailto:silver@silverspark.studio)
 Project Link: [https://github.com/silveralcid/RSSence](https://github.com/silveralcid/RSSence)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
