@@ -142,7 +142,6 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 ## Contact
 
 Silver Alcid - [@silveralcid](https://twitter.com/silveralcid) | [silver@silverspark.studio](mailto:silver@silverspark.studio)
-Project Link: [https://github.com/silveralcid/RSSence](https://github.com/silveralcid/RSSence)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
