@@ -7,9 +7,8 @@ import { ThemeProvider } from "@/components/theme-provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "RSS Visualizer",
-  description: "A Flipboard-style RSS feed visualizer",
-    generator: 'v0.dev'
+  title: "RSSence - RSS Feed Visualizer",
+  description: "A free and open-source RSS feed visualizer for everyone",
 }
 
 export default function RootLayout({
