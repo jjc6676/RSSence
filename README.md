@@ -34,7 +34,7 @@
 <h3 align="center">RSSence</h3>
 
   <p align="center">
-    Imagine turning your TV or monitor into a stunning, ever-changing dashboard of news, blogs, and updates from your favorite sources. A beautifully designed RSS screensaver could bring headlines to life with smooth animations, flipping cards, and dynamic transitions—like a mix of Flipboard and a retro clock display. Perfect for keeping up with the world while your screen is idle, this tool would transform passive screens into an engaging, modern news hub. Who wouldn’t want their feeds looking this good?
+    Imagine turning your TV or monitor into a stunning, ever-changing dashboard of news, blogs, and updates from your favorite sources. A beautifully designed RSS screensaver could bring headlines to life with smooth animations. Perfect for keeping up with the world while your screen is idle, this tool would transform passive screens into an engaging, modern news hub. Who wouldn’t want their feeds looking this good?
     <br />
     <br />
     <a href="https://github.com/silveralcid/rssence">View Demo</a>
