@@ -76,7 +76,7 @@ RSSence was created in response to a request on **r/SomebodyMakeThis**, bringing
 
 With the resurgence of RSS as a powerful, independent way to follow the web, RSSence aims to make consuming news both functional and aesthetically pleasing. Whether you're working, relaxing, or just want an elegant, ever-changing display of updates, RSSence turns idle screens into something useful and beautiful.
 
-Got a brilliant idea but no way to build it? Let’s make it happen! At [Silver Spark Studio](https://silverspark.studio/), we’re a fresh software development agency kicking off our journey by giving back. We’re looking for exciting micro-SaaS ideas—and if they benefit the general public, we’ll bring them to life for free or at a steep discount. Best of all, everything we create will be open-source, so your idea can grow and thrive. 
+Got a brilliant idea but no way to build it? Let’s make it happen! At [Silver Spark Studio](https://silverspark.studio/), we’re a fresh software development agency kicking off our journey by giving back. We’re looking for exciting micro-SaaS ideas—and if they benefit the general public, we’ll bring them to life for free or at cost. Best of all, everything we create will be open-source, so your idea can grow and thrive. 
 
 ### Let’s spark something great together!
 
