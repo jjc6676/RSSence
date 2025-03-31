@@ -81,6 +81,13 @@ With the resurgence of RSS as a powerful, independent way to follow the web, RSS
 
 Got a brilliant idea but no way to build it? Let’s make it happen! At [Silver Spark Studio](https://silverspark.studio/), we’re a fresh software development agency kicking off our journey by giving back. We’re looking for exciting micro-SaaS ideas—and if they benefit the general public, we’ll bring them to life for free or at cost. Best of all, everything we create will be open-source, so your idea can grow and thrive. 
 
+- **Effortless Feed Management:** Quickly add, remove, and validate RSS feeds—with one-click example feeds for top sources.
+- **Tailored Display Options:** Adjust content size, toggle images, set custom card durations, and choose sort orders for a personalized view.
+- **Versatile Appearance & Themes:** Switch between Light, Dark, or System themes, and select a minimalist Vibe Mode for a clean look.
+- **Dynamic Background Customization:** Use custom background images and choose from fun particle effects like bubbles, confetti, stars, and seasonal leaves.
+- **Integrated Clock & Navigation:** Display a multi-timezone clock, and enjoy intuitive keyboard and on-screen navigation, automatic transitions, and fullscreen toggle.
+- **Responsive & Feature-Rich Interface:** Experience a mobile-friendly design with error handling, animated transitions, and optimized rendering for smooth performance.
+
 ### Let’s spark something great together!
 
 Get in touch with us at [hello@silverspark.studio](mailto:hello@silverspark.studio)!
