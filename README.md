@@ -37,7 +37,7 @@
     Imagine turning your TV or monitor into a stunning, ever-changing dashboard of news, blogs, and updates from your favorite sources. A beautifully designed RSS screensaver could bring headlines to life with smooth animations. Perfect for keeping up with the world while your screen is idle, this tool would transform passive screens into an engaging, modern news hub. Who wouldn’t want their feeds looking this good?
     <br />
     <br />
-    <a href="https://github.com/silveralcid/rssence">View Demo</a>
+    <a href="https://youtu.be/RIK9aqslzko">View Demo</a>
     ·
     <a href="https://github.com/silveralcid/rssence/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     ·
@@ -57,7 +57,6 @@
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
@@ -92,18 +91,6 @@ Get in touch with us at [hello@silverspark.studio](mailto:hello@silverspark.stud
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
-
-
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
