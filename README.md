@@ -73,11 +73,13 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `silveralcid`, `rssence`, `silveralcid`, `silveralcid`, `silverspark.studio`, `silver`, `RSSence`, `Imagine turning your TV or monitor into a stunning, ever-changing dashboard of news, blogs, and updates from your favorite sources. A beautifully designed RSS screensaver could bring headlines to life with smooth animations, flipping cards, and dynamic transitions—like a mix of Flipboard and a retro clock display. Perfect for keeping up with the world while your screen is idle, this tool would transform passive screens into an engaging, modern news hub. Who wouldn’t want their feeds looking this good?`
+RSSence was created in response to a request on **r/SomebodyMakeThis**, bringing to life the idea of a beautifully animated, fullscreen RSS visualizer. Inspired by classic RSS screensavers from the past, RSSence transforms your screen into a dynamic news hub, displaying headlines in a visually engaging way—think flipping cards, smooth transitions, and modern design. It’s an open-source, free tool designed for anyone who wants to bring their favorite feeds to life, whether on a TV, monitor, or secondary display.  
+
+With the resurgence of RSS as a powerful, independent way to follow the web, RSSence aims to make consuming news both functional and aesthetically pleasing. Whether you're working, relaxing, or just want an elegant, ever-changing display of updates, RSSence turns idle screens into something useful and beautiful.
+
+### Would you like to see your idea come to life? Visit us at [silverspark.studio](https://silverspark.studio).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 ### Built With
 
