@@ -45,6 +45,13 @@
   </p>
 </div>
 
+<p align="center">
+  <a href="https://github.com/silveralcid/RSSence/blob/main/demo.gif">
+    <img src="https://github.com/silveralcid/RSSence/raw/main/demo.gif" alt="Product Name Screen Shot">
+  </a>
+</p>
+
+
 
 
 <!-- TABLE OF CONTENTS -->
@@ -69,8 +76,6 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
-[![Product Name Screen Shot](https://github.com/silveralcid/RSSence/raw/main/demo.gif)](https://github.com/silveralcid/RSSence/blob/main/demo.gif)
 
 RSSence was created in response to a request on **r/SomebodyMakeThis**, bringing to life the idea of a beautifully animated, fullscreen RSS visualizer. Inspired by classic RSS screensavers from the past, RSSence transforms your screen into a dynamic news hub, displaying headlines in a visually engaging way—think flipping cards, smooth transitions, and modern design. It’s an open-source, free tool designed for anyone who wants to bring their favorite feeds to life, whether on a TV, monitor, or secondary display.  
 
