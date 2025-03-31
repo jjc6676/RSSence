@@ -85,9 +85,8 @@ Get in touch with us at [hello@silverspark.studio](mailto:hello@silverspark.stud
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
-
-* [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
+[![Next][Next.js]][Next-url]
+[![React][React.js]][React-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
