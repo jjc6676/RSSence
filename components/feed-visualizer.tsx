@@ -150,9 +150,7 @@ export default function FeedVisualizer() {
   // Determine if we should show background image
   const showBgImage = showCustomBackground && customBackground
 
-  // Calculate arrow size based on content size
-  const arrowSize = Math.max(24, Math.round(24 * (contentSize / 100)))
-  const arrowFontSize = `${Math.max(1.5, 1.5 * (contentSize / 100))}rem`
+  // Remove these lines that calculate arrow size based on content size since we no longer need them:
 
   return (
     <div
@@ -224,48 +222,28 @@ export default function FeedVisualizer() {
         </motion.div>
       </AnimatePresence>
 
-      {/* Navigation arrows positioned at the bottom center */}
       <div
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 flex gap-6 items-center justify-center"
-        style={{ transform: `translateX(-50%) scale(${contentSize / 100})` }}
+        style={{ transform: `translateX(-50%)` }}
       >
-        <Button
-          variant="ghost"
-          onClick={goToPrevious}
-          className="p-2 bg-background/50 backdrop-blur-sm rounded-full hover:bg-background/70"
-          aria-label="Previous item"
-        >
-          <KeyboardArrowButton direction="left" size={arrowSize} fontSize={arrowFontSize} />
+        <Button variant="ghost" onClick={goToPrevious} className="p-0 hover:bg-transparent" aria-label="Previous item">
+          <KeyboardShapeButton direction="left" />
         </Button>
 
-        <Button
-          variant="ghost"
-          onClick={goToNext}
-          className="p-2 bg-background/50 backdrop-blur-sm rounded-full hover:bg-background/70"
-          aria-label="Next item"
-        >
-          <KeyboardArrowButton direction="right" size={arrowSize} fontSize={arrowFontSize} />
+        <Button variant="ghost" onClick={goToNext} className="p-0 hover:bg-transparent" aria-label="Next item">
+          <KeyboardShapeButton direction="right" />
         </Button>
       </div>
     </div>
   )
 }
 
-// Custom keyboard arrow button component
-function KeyboardArrowButton({
-  direction,
-  size = 24,
-  fontSize = "1.5rem",
-}: {
-  direction: "left" | "right"
-  size?: number
-  fontSize?: string
-}) {
+function KeyboardShapeButton({ direction }: { direction: "left" | "right" }) {
   return (
-    <div className="flex items-center justify-center" style={{ width: size, height: size }}>
-      <span className="text-foreground" style={{ fontSize }}>
-        {direction === "left" ? "←" : "→"}
-      </span>
+    <div
+      className={`flex items-center justify-center bg-background/80 backdrop-blur-sm border border-border rounded-md px-3 py-2 shadow-sm hover:bg-background/90 transition-colors`}
+    >
+      <span className="text-foreground font-medium">{direction === "left" ? "←" : "→"}</span>
     </div>
   )
 }
