@@ -33,8 +33,10 @@
 
 <h3 align="center">RSSence</h3>
 
+[![Support me on Patreon](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.vercel.app%2Fapi%3Fusername%3Dsilveralcid%26type%3Dpatrons&style=plastic)](https://patreon.com/silveralcid)
+
   <p align="center">
-RSSence was created in response to a request on **r/SomebodyMakeThis**, bringing to life the idea of a beautifully animated, fullscreen RSS visualizer. Inspired by classic RSS screensavers from the past, RSSence transforms your screen into a dynamic news hub, displaying headlines in a visually engaging way—think flipping cards, smooth transitions, and modern design. It’s an open-source, free tool designed for anyone who wants to bring their favorite feeds to life, whether on a TV, monitor, or secondary display.  
+RSSence was created in response to a request on r/SomebodyMakeThis, bringing to life the idea of a beautifully animated, fullscreen RSS visualizer. Inspired by classic RSS screensavers from the past, RSSence transforms your screen into a dynamic news hub, displaying headlines in a visually engaging way—think flipping cards, smooth transitions, and modern design. It’s an open-source, free tool designed for anyone who wants to bring their favorite feeds to life, whether on a TV, monitor, or secondary display.  
     <br />
     <br />
     <a href="https://youtu.be/RIK9aqslzko">View Demo</a>
