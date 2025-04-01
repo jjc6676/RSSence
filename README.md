@@ -34,16 +34,23 @@
 <h3 align="center">RSSence</h3>
 
   <p align="center">
-    Imagine turning your TV or monitor into a stunning, ever-changing dashboard of news, blogs, and updates from your favorite sources. A beautifully designed RSS screensaver could bring headlines to life with smooth animations. Perfect for keeping up with the world while your screen is idle, this tool would transform passive screens into an engaging, modern news hub. Who wouldn’t want their feeds looking this good?
+RSSence was created in response to a request on **r/SomebodyMakeThis**, bringing to life the idea of a beautifully animated, fullscreen RSS visualizer. Inspired by classic RSS screensavers from the past, RSSence transforms your screen into a dynamic news hub, displaying headlines in a visually engaging way—think flipping cards, smooth transitions, and modern design. It’s an open-source, free tool designed for anyone who wants to bring their favorite feeds to life, whether on a TV, monitor, or secondary display.  
     <br />
     <br />
-    <a href="https://github.com/silveralcid/rssence">View Demo</a>
+    <a href="https://youtu.be/RIK9aqslzko">View Demo</a>
     ·
     <a href="https://github.com/silveralcid/rssence/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     ·
     <a href="https://github.com/silveralcid/rssence/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
   </p>
 </div>
+
+<p align="center">
+  <a href="https://github.com/silveralcid/RSSence/blob/main/demo.gif">
+    <img src="https://github.com/silveralcid/RSSence/raw/main/demo.gif" alt="Product Name Screen Shot">
+  </a>
+</p>
+
 
 
 
@@ -57,7 +64,6 @@
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
@@ -71,39 +77,30 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-RSSence was created in response to a request on **r/SomebodyMakeThis**, bringing to life the idea of a beautifully animated, fullscreen RSS visualizer. Inspired by classic RSS screensavers from the past, RSSence transforms your screen into a dynamic news hub, displaying headlines in a visually engaging way—think flipping cards, smooth transitions, and modern design. It’s an open-source, free tool designed for anyone who wants to bring their favorite feeds to life, whether on a TV, monitor, or secondary display.  
-
 With the resurgence of RSS as a powerful, independent way to follow the web, RSSence aims to make consuming news both functional and aesthetically pleasing. Whether you're working, relaxing, or just want an elegant, ever-changing display of updates, RSSence turns idle screens into something useful and beautiful.
 
-Got a brilliant idea but no way to build it? Let’s make it happen! At [Silver Spark Studio](https://silverspark.studio/), we’re a fresh software development agency kicking off our journey by giving back. We’re looking for exciting micro-SaaS ideas—and if they benefit the general public, we’ll bring them to life for free or at a steep discount. Best of all, everything we create will be open-source, so your idea can grow and thrive. 
+- **Effortless Feed Management:** Quickly add, remove, and validate RSS feeds—with one-click example feeds for top sources.
+- **Tailored Display Options:** Adjust content size, toggle images, set custom card durations, and choose sort orders for a personalized view.
+- **Versatile Appearance & Themes:** Switch between Light, Dark, or System themes, and select a minimalist Vibe Mode for a clean look.
+- **Dynamic Background Customization:** Use custom background images and choose from fun particle effects like bubbles, confetti, stars, and seasonal leaves.
+- **Integrated Clock & Navigation:** Display a multi-timezone clock, and enjoy intuitive keyboard and on-screen navigation, automatic transitions, and fullscreen toggle.
+- **Responsive & Feature-Rich Interface:** Experience a mobile-friendly design with error handling, animated transitions, and optimized rendering for smooth performance.
+
 
 ### Let’s spark something great together!
+
+Got a brilliant idea but no way to build it? Let’s make it happen! At [Silver Spark Studio](https://silverspark.studio/), we’re a fresh software development agency kicking off our journey by giving back. We’re looking for exciting micro-SaaS ideas—and if they benefit the general public, we’ll bring them to life for free or at cost. Best of all, everything we create will be open-source, so your idea can grow and thrive. 
 
 Get in touch with us at [hello@silverspark.studio](mailto:hello@silverspark.studio)!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
-
-* [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-
-
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
+[![Next][Next.js]][Next-url]
+[![React][React.js]][React-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 
 
@@ -112,7 +109,7 @@ Use this space to show useful examples of how a project can be used. Additional 
 
 Have an idea for a cool feature? Let us know!
 
-See the [open issues](https://github.com/silveralcid/RSSence/issues) for a full list of proposed features (and known issues).
+Add an feature or issue request, see [open issues](https://github.com/silveralcid/RSSence/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -153,7 +150,6 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 ## Contact
 
 Silver Alcid - [@silveralcid](https://twitter.com/silveralcid) | [silver@silverspark.studio](mailto:silver@silverspark.studio)
-Project Link: [https://github.com/silveralcid/RSSence](https://github.com/silveralcid/RSSence)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
