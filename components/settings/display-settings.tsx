@@ -1,6 +1,6 @@
 "use client"
 
-import { Image, ArrowDownAZ, ArrowUpZA, Shuffle, ScalingIcon as Resize } from "lucide-react"
+import { Image, ArrowDownAZ, ArrowUpZA, Shuffle, ScalingIcon as Resize, EyeOff } from "lucide-react"
 import { Label } from "@/components/ui/label"
 import { Slider } from "@/components/ui/slider"
 import { Switch } from "@/components/ui/switch"
@@ -8,7 +8,16 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { useFeed, type SortOrder } from "@/context/feed-context"
 
 export default function DisplaySettings() {
-  const { showImages, setShowImages, contentSize, setContentSize, sortOrder, setSortOrder } = useFeed()
+  const {
+    showImages,
+    setShowImages,
+    contentSize,
+    setContentSize,
+    sortOrder,
+    setSortOrder,
+    hideExtraUI,
+    setHideExtraUI,
+  } = useFeed()
 
   return (
     <div className="space-y-4">
@@ -20,6 +29,14 @@ export default function DisplaySettings() {
             <Label htmlFor="show-images">Show Images</Label>
           </div>
           <Switch id="show-images" checked={showImages} onCheckedChange={setShowImages} />
+        </div>
+
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <EyeOff size={18} />
+            <Label htmlFor="hide-extra-ui">Hide Extra UI</Label>
+          </div>
+          <Switch id="hide-extra-ui" checked={hideExtraUI} onCheckedChange={setHideExtraUI} />
         </div>
 
         <div className="space-y-2">

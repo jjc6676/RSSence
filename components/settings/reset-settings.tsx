@@ -1,92 +1,102 @@
 "use client"
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Alert, AlertDescription } from "@/components/ui/alert"
-import { useFeed } from "@/context/feed-context"
-import { useTheme } from "next-themes"
+import { Image, ArrowDownAZ, ArrowUpZA, Shuffle, ScalingIcon as Resize, EyeOff } from "lucide-react"
+import { Label } from "@/components/ui/label"
+import { Slider } from "@/components/ui/slider"
+import { Switch } from "@/components/ui/switch"
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { useFeed, type SortOrder } from "@/context/feed-context"
 
-export default function ResetSettings() {
-  const [resetConfirmation, setResetConfirmation] = useState(false)
-
+export default function DisplaySettings() {
   const {
-    setFeeds,
-    setTransitionSpeed,
+    showImages,
     setShowImages,
-    setSortOrder,
-    setCustomBackground,
-    setShowCustomBackground,
-    setParticleEffect,
-    setVibeMode,
-    setShowClock,
-    setTimezone,
+    contentSize,
     setContentSize,
-    setClockSize,
+    sortOrder,
+    setSortOrder,
+    hideExtraUI,
+    setHideExtraUI,
   } = useFeed()
-
-  const { setTheme } = useTheme()
-
-  const resetToDefaults = () => {
-    // Default values with NPR, BBC, and NYT
-    const defaultFeeds = [
-      "https://feeds.bbci.co.uk/news/world/rss.xml", // BBC
-      "https://rss.nytimes.com/services/xml/rss/nyt/World.xml", // NYT
-      "https://feeds.npr.org/1001/rss.xml", // NPR
-      "https://www.nasa.gov/feed/",
-    ]
-    const defaultBackground =
-      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=4096&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-
-    // Clear all localStorage items
-    localStorage.removeItem("rss-visualizer-feeds")
-    localStorage.removeItem("rss-visualizer-transition-speed")
-    localStorage.removeItem("rss-visualizer-show-images")
-    localStorage.removeItem("rss-visualizer-sort-order")
-    localStorage.removeItem("rss-visualizer-custom-background")
-    localStorage.removeItem("rss-visualizer-show-custom-background")
-    localStorage.removeItem("rss-visualizer-particle-effect")
-    localStorage.removeItem("rss-visualizer-vibe-mode")
-    localStorage.removeItem("rss-visualizer-show-clock")
-    localStorage.removeItem("rss-visualizer-timezone")
-    localStorage.removeItem("rss-visualizer-content-size")
-    localStorage.removeItem("rss-visualizer-clock-size")
-
-    // Reset all state values to defaults
-    setTransitionSpeed(5)
-    setShowImages(true)
-    setSortOrder("latest")
-    setCustomBackground(defaultBackground)
-    setShowCustomBackground(true)
-    setParticleEffect("bubbles")
-    setVibeMode("off")
-    setShowClock(true)
-    setTimezone("local")
-    setContentSize(100)
-    setClockSize(100)
-    setFeeds(defaultFeeds)
-
-    // Reset theme to system
-    setTheme("system")
-
-    // Show confirmation message
-    setResetConfirmation(true)
-    setTimeout(() => setResetConfirmation(false), 3000)
-  }
 
   return (
     <div className="space-y-4">
-      <h3 className="text-lg font-medium">Reset Settings</h3>
-      <Button variant="destructive" onClick={resetToDefaults} className="w-full">
-        Reset All Settings to Default
-      </Button>
-      {resetConfirmation && (
-        <Alert className="mt-2 bg-green-500/10 text-green-500 border-green-500/20">
-          <AlertDescription>Settings have been reset to defaults</AlertDescription>
-        </Alert>
-      )}
-      <p className="text-xs text-muted-foreground">
-        This will clear all saved settings and restore the default configuration.
-      </p>
+      <h3 className="text-lg font-medium">Display Settings</h3>
+      <div className="space-y-4">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <Image size={18} />
+            <Label htmlFor="show-images">Show Images</Label>
+          </div>
+          <Switch id="show-images" checked={showImages} onCheckedChange={setShowImages} />
+        </div>
+
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <EyeOff size={18} />
+            <Label htmlFor="hide-extra-ui">Hide Extra UI</Label>
+          </div>
+          <Switch id="hide-extra-ui" checked={hideExtraUI} onCheckedChange={setHideExtraUI} />
+        </div>
+        <p className="text-xs text-muted-foreground mb-4">
+          Hides navigation arrows and control buttons for a cleaner viewing experience. Keyboard navigation still works.
+        </p>
+
+        <div className="space-y-2">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <Resize size={18} />
+              <Label htmlFor="content-size">Content Size</Label>
+            </div>
+            <span className="text-sm text-muted-foreground">{contentSize}%</span>
+          </div>
+          <Slider
+            id="content-size"
+            min={75}
+            max={200}
+            step={5}
+            value={[contentSize]}
+            onValueChange={(value) => setContentSize(value[0])}
+          />
+          <p className="text-xs text-muted-foreground">
+            Adjust the size of cards and text from small desktop (75%) to large TV (200%)
+          </p>
+        </div>
+
+        <div className="space-y-2">
+          <Label className="flex items-center gap-2">
+            <ArrowDownAZ size={18} />
+            Sort Order
+          </Label>
+          <RadioGroup
+            value={sortOrder}
+            onValueChange={(value) => setSortOrder(value as SortOrder)}
+            className="flex flex-col space-y-1"
+          >
+            <div className="flex items-center space-x-2">
+              <RadioGroupItem value="latest" id="latest" />
+              <Label htmlFor="latest" className="flex items-center gap-1 cursor-pointer">
+                <ArrowDownAZ size={14} />
+                Latest to Oldest
+              </Label>
+            </div>
+            <div className="flex items-center space-x-2">
+              <RadioGroupItem value="oldest" id="oldest" />
+              <Label htmlFor="oldest" className="flex items-center gap-1 cursor-pointer">
+                <ArrowUpZA size={14} />
+                Oldest to Latest
+              </Label>
+            </div>
+            <div className="flex items-center space-x-2">
+              <RadioGroupItem value="shuffle" id="shuffle" />
+              <Label htmlFor="shuffle" className="flex items-center gap-1 cursor-pointer">
+                <Shuffle size={14} />
+                Shuffle (Random)
+              </Label>
+            </div>
+          </RadioGroup>
+        </div>
+      </div>
     </div>
   )
 }

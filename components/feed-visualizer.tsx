@@ -28,6 +28,7 @@ export default function FeedVisualizer() {
     refreshFeeds,
     transitionSpeed,
     contentSize,
+    hideExtraUI,
   } = useFeed()
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
@@ -150,7 +151,10 @@ export default function FeedVisualizer() {
   // Determine if we should show background image
   const showBgImage = showCustomBackground && customBackground
 
-  // Remove these lines that calculate arrow size based on content size since we no longer need them:
+  // Determine if we should show UI controls based on hideExtraUI setting
+  // In fullscreen mode, we should hide the fullscreen button if hideExtraUI is true
+  const showControls = !hideExtraUI
+  const showFullscreenButton = !hideExtraUI || !isFullscreen
 
   return (
     <div
@@ -179,25 +183,32 @@ export default function FeedVisualizer() {
         </div>
       )}
 
-      <div className="absolute right-4 top-4 z-10 flex gap-2">
-        <Button
-          variant="outline"
-          size="icon"
-          onClick={handleRefresh}
-          className="rounded-full bg-background/50 backdrop-blur-sm"
-          disabled={isRefreshing}
-        >
-          <RefreshCw size={20} className={isRefreshing ? "animate-spin" : ""} />
-        </Button>
-        <Button
-          variant="outline"
-          size="icon"
-          onClick={toggleFullscreen}
-          className="rounded-full bg-background/50 backdrop-blur-sm"
-        >
-          {isFullscreen ? <Minimize size={20} /> : <Maximize size={20} />}
-        </Button>
-      </div>
+      {/* Only show the control buttons if showControls is true */}
+      {(showControls || showFullscreenButton) && (
+        <div className="absolute right-4 top-4 z-10 flex gap-2">
+          {showControls && (
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={handleRefresh}
+              className="rounded-full bg-background/50 backdrop-blur-sm"
+              disabled={isRefreshing}
+            >
+              <RefreshCw size={20} className={isRefreshing ? "animate-spin" : ""} />
+            </Button>
+          )}
+          {showFullscreenButton && (
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={toggleFullscreen}
+              className="rounded-full bg-background/50 backdrop-blur-sm"
+            >
+              {isFullscreen ? <Minimize size={20} /> : <Maximize size={20} />}
+            </Button>
+          )}
+        </div>
+      )}
 
       <AnimatePresence mode="wait">
         <motion.div
@@ -222,22 +233,31 @@ export default function FeedVisualizer() {
         </motion.div>
       </AnimatePresence>
 
-      <div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 flex gap-6 items-center justify-center"
-        style={{ transform: `translateX(-50%)` }}
-      >
-        <Button variant="ghost" onClick={goToPrevious} className="p-0 hover:bg-transparent" aria-label="Previous item">
-          <KeyboardShapeButton direction="left" />
-        </Button>
+      {/* Only show navigation buttons if showControls is true */}
+      {showControls && (
+        <div
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 flex gap-6 items-center justify-center"
+          style={{ transform: `translateX(-50%)` }}
+        >
+          <Button
+            variant="ghost"
+            onClick={goToPrevious}
+            className="p-0 hover:bg-transparent"
+            aria-label="Previous item"
+          >
+            <KeyboardShapeButton direction="left" />
+          </Button>
 
-        <Button variant="ghost" onClick={goToNext} className="p-0 hover:bg-transparent" aria-label="Next item">
-          <KeyboardShapeButton direction="right" />
-        </Button>
-      </div>
+          <Button variant="ghost" onClick={goToNext} className="p-0 hover:bg-transparent" aria-label="Next item">
+            <KeyboardShapeButton direction="right" />
+          </Button>
+        </div>
+      )}
     </div>
   )
 }
 
+// Keyboard shape button component:
 function KeyboardShapeButton({ direction }: { direction: "left" | "right" }) {
   return (
     <div

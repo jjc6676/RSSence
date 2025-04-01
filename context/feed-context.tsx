@@ -45,6 +45,8 @@ interface FeedContextType {
   setContentSize: (size: number) => void
   clockSize: number
   setClockSize: (size: number) => void
+  hideExtraUI: boolean
+  setHideExtraUI: (hide: boolean) => void
   setFeeds: (feeds: string[]) => void
   refreshFeeds: () => void
 }
@@ -105,6 +107,7 @@ export function FeedProvider({ children }: { children: ReactNode }) {
   const [timezone, setTimezone] = useState("local") // State for timezone, default to local
   const [contentSize, setContentSize] = useState(100) // State for content size, default to 100%
   const [clockSize, setClockSize] = useState(100) // State for clock size, default to 100%
+  const [hideExtraUI, setHideExtraUI] = useState(false) // State for hiding extra UI elements, default to false (off)
   const { theme, setTheme } = useTheme()
   const [lastFetchTime, setLastFetchTime] = useState(0) // Track last fetch time to prevent too frequent refreshes
 
@@ -121,10 +124,11 @@ export function FeedProvider({ children }: { children: ReactNode }) {
     setShowCustomBackground(getFromLocalStorage<boolean>("rss-visualizer-show-custom-background", true))
     setParticleEffect(getFromLocalStorage<ParticleEffect>("rss-visualizer-particle-effect", "bubbles"))
     setVibeMode(getFromLocalStorage<VibeMode>("rss-visualizer-vibe-mode", "off"))
-    setShowClock(getFromLocalStorage<boolean>("rss-visualizer-show-clock", true)) // Now true by default
+    setShowClock(getFromLocalStorage<boolean>("rss-visualizer-show-clock", true))
     setTimezone(getFromLocalStorage<string>("rss-visualizer-timezone", "local"))
     setContentSize(getFromLocalStorage<number>("rss-visualizer-content-size", 100))
     setClockSize(getFromLocalStorage<number>("rss-visualizer-clock-size", 100))
+    setHideExtraUI(getFromLocalStorage<boolean>("rss-visualizer-hide-extra-ui", false)) // Default to false (off)
   }, [])
 
   // Save feeds to localStorage when they change
@@ -185,6 +189,11 @@ export function FeedProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     setInLocalStorage("rss-visualizer-clock-size", clockSize)
   }, [clockSize])
+
+  // Save hide extra UI preference to localStorage when it changes
+  useEffect(() => {
+    setInLocalStorage("rss-visualizer-hide-extra-ui", hideExtraUI)
+  }, [hideExtraUI])
 
   // Apply sorting to feed items when sort order or raw items change
   useEffect(() => {
@@ -384,6 +393,8 @@ export function FeedProvider({ children }: { children: ReactNode }) {
       setContentSize,
       clockSize,
       setClockSize,
+      hideExtraUI,
+      setHideExtraUI,
       setFeeds,
       refreshFeeds,
     }),
@@ -403,6 +414,7 @@ export function FeedProvider({ children }: { children: ReactNode }) {
       timezone,
       contentSize,
       clockSize,
+      hideExtraUI,
       addFeed,
       removeFeed,
     ],
