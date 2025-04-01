@@ -1,6 +1,7 @@
 import { Suspense } from "react"
 import FeedVisualizer from "@/components/feed-visualizer"
 import SettingsPanel from "@/components/settings-panel"
+import AnalyticsTest from "@/components/analytics-test"
 import { FeedProvider } from "@/context/feed-context"
 
 export default function Home() {
