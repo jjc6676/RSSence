@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { trackEvent } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
 

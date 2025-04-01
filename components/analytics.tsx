@@ -1,17 +1,13 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, Suspense } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { initAnalytics, trackPageView } from "@/lib/analytics";
 
-export default function Analytics() {
+// Separate component to handle the search params
+function AnalyticsPageTracker() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-
-  useEffect(() => {
-    // Initialize analytics on first mount
-    initAnalytics();
-  }, []);
 
   useEffect(() => {
     if (pathname) {
@@ -21,6 +17,19 @@ export default function Analytics() {
     }
   }, [pathname, searchParams]);
 
-  // This component doesn't render anything
   return null;
+}
+
+export default function Analytics() {
+  useEffect(() => {
+    // Initialize analytics on first mount
+    initAnalytics();
+  }, []);
+
+  // This component doesn't render anything visible
+  return (
+    <Suspense fallback={null}>
+      <AnalyticsPageTracker />
+    </Suspense>
+  );
 } 

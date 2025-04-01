@@ -20,6 +20,7 @@ export default function Home() {
         >
           <FeedVisualizer />
           <SettingsPanel />
+          <AnalyticsTest />
         </Suspense>
       </main>
     </FeedProvider>
