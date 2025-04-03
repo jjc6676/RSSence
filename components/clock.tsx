@@ -52,7 +52,10 @@ export default function Clock({ timezone, size, className = "" }: ClockProps) {
       style={{ transform: `scale(${size / 100})`, transformOrigin: "center center" }}
     >
       <ClockIcon size={iconSize} className="text-foreground/70" />
-      <span style={{ fontSize: `${fontSize}rem` }} className="font-medium">
+      <span 
+        style={{ fontSize: `${fontSize}rem`, fontVariantNumeric: "tabular-nums" }} 
+        className="font-medium"
+      >
         {formattedTime()}
       </span>
     </div>
