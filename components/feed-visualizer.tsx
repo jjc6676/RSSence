@@ -36,7 +36,7 @@ export default function FeedVisualizer() {
   const { isFullscreen, toggleFullscreen } = useFullscreen()
   const containerRef = useRef<HTMLDivElement>(null)
   const intervalRef = useRef<NodeJS.Timeout | null>(null)
-  const { setTheme } = useTheme()
+  const { setTheme, theme } = useTheme()
 
   // Update useEffect to enforce dark mode and turn off custom background when stars effect is selected
   useEffect(() => {
@@ -259,11 +259,18 @@ export default function FeedVisualizer() {
 
 // Keyboard shape button component:
 function KeyboardShapeButton({ direction }: { direction: "left" | "right" }) {
+  const { theme } = useTheme()
+  const isDarkMode = theme === "dark"
+  
   return (
     <div
-      className={`flex items-center justify-center bg-background/80 backdrop-blur-sm border border-border rounded-md px-3 py-2 shadow-sm hover:bg-background/90 transition-colors`}
+      className={`flex items-center justify-center ${
+        isDarkMode ? "bg-white/80 text-black" : "bg-black/80 text-white"
+      } backdrop-blur-sm border border-border rounded-md px-3 py-2 shadow-sm ${
+        isDarkMode ? "hover:bg-white/90" : "hover:bg-black/90"
+      } transition-colors`}
     >
-      <span className="text-foreground font-medium">{direction === "left" ? "←" : "→"}</span>
+      <span className="font-medium">{direction === "left" ? "←" : "→"}</span>
     </div>
   )
 }
