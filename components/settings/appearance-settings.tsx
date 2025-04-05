@@ -1,15 +1,20 @@
 "use client"
 
-import { Moon, Sun, Monitor } from "lucide-react"
+import { Moon, Sun, Monitor, Palette } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Slider } from "@/components/ui/slider"
 import { Label } from "@/components/ui/label"
+import { Switch } from "@/components/ui/switch"
 import { useFeed } from "@/context/feed-context"
 import { useTheme } from "next-themes"
 
 export default function AppearanceSettings() {
   const { transitionSpeed, setTransitionSpeed, vibeMode, setVibeMode } = useFeed()
   const { theme, setTheme } = useTheme()
+
+  const handleToggleVibe = (checked: boolean) => {
+    setVibeMode(checked ? (theme === "dark" ? "dark" : "light") : "off")
+  }
 
   return (
     <div className="space-y-4">
@@ -52,6 +57,23 @@ export default function AppearanceSettings() {
             <span className="text-sm font-medium">System</span>
           </CardContent>
         </Card>
+      </div>
+
+      <div className="space-y-2 mt-4">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <Palette size={18} />
+            <Label htmlFor="vibe-mode">Vibe Mode</Label>
+          </div>
+          <Switch 
+            id="vibe-mode" 
+            checked={vibeMode !== "off"} 
+            onCheckedChange={handleToggleVibe} 
+          />
+        </div>
+        <p className="text-xs text-muted-foreground">
+          Vibe mode provides a minimalist view with elegant typography and smooth animations.
+        </p>
       </div>
 
       <div className="space-y-2 mt-4">

@@ -9,7 +9,6 @@ import { Button } from "@/components/ui/button"
 import FeedSettings from "@/components/settings/feed-settings"
 import DisplaySettings from "@/components/settings/display-settings"
 import ClockSettings from "@/components/settings/clock-settings"
-import VibeSettings from "@/components/settings/vibe-settings"
 import BackgroundSettings from "@/components/settings/background-settings"
 import AppearanceSettings from "@/components/settings/appearance-settings"
 import AboutSection from "@/components/settings/about-section"
@@ -110,9 +109,6 @@ export default function SettingsPanel() {
 
               {/* Clock Settings */}
               <ClockSettings />
-
-              {/* Vibe Settings */}
-              <VibeSettings />
 
               {/* Background Settings */}
               <BackgroundSettings />
