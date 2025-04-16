@@ -8,8 +8,8 @@ export default function AboutSection() {
     <div className="space-y-4">
       <h3 className="text-lg font-medium">About</h3>
       <p className="text-sm text-muted-foreground mb-4">
-        This app was created in response to a request from /u/mulcahey on /r/SomebodyMakeThis/ and brought to life by
-        Silver Alcid of <span className="text-gradient-primary">Silver Spark Studio</span>. Have an idea you want built?
+        This app was created in response to a request from /u/mulcahey on /r/SomebodyMakeThis/ and brought to life 
+        by <span className="text-gradient-primary">Silver Spark Studio</span>. Have an idea you want built?
         Click the Visit Us button below!
       </p>
 
@@ -27,7 +27,7 @@ export default function AboutSection() {
         <Button
           variant="outline"
           className="flex-1 flex items-center justify-center gap-2"
-          onClick={() => window.open("https://www.buymeacoffee.com/silveralcid", "_blank")}
+          onClick={() => window.open("https://www.buymeacoffee.com/silversparkstudio", "_blank")}
         >
           <Coffee size={16} />
           Tip Jar
@@ -35,7 +35,7 @@ export default function AboutSection() {
         <Button
           variant="outline"
           className="flex-1 flex items-center justify-center gap-2"
-          onClick={() => window.open("https://www.patreon.com/silveralcid", "_blank")}
+          onClick={() => window.open("https://www.patreon.com/silversparkstudio", "_blank")}
         >
           <Heart size={16} />
           Patreon
