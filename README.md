@@ -35,6 +35,8 @@
 
 [![Support me on Patreon](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.vercel.app%2Fapi%3Fusername%3Dsilversparkstudio%26type%3Dpatrons&style=plastic)](https://patreon.com/silversparkstudio)
 
+<a href="https://www.producthunt.com/posts/rssence?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-rssence" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=955121&theme=light&t=1745073300255" alt="RSSence - Your&#0032;modern&#0032;RSS&#0032;feed&#0044;&#0032;reimagined&#0046; | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+
   <p align="center">
 RSSence was created in response to a request on r/SomebodyMakeThis, bringing to life the idea of a beautifully animated, fullscreen RSS visualizer. Inspired by classic RSS screensavers from the past, RSSence transforms your screen into a dynamic news hub, displaying headlines in a visually engaging way—think flipping cards, smooth transitions, and modern design. It’s an open-source, free tool designed for anyone who wants to bring their favorite feeds to life, whether on a TV, monitor, or secondary display.  
     <br />
