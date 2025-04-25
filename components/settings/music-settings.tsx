@@ -39,6 +39,7 @@ export default function MusicSettings() {
     if (musicUrl.trim()) {
       const validation = validateMusicUrl(musicUrl.trim())
       if (validation.valid) {
+        console.log("Setting background music to:", musicUrl.trim())
         setBackgroundMusic(musicUrl.trim())
         setMusicUrl("")
         setUrlError(null)
@@ -48,15 +49,25 @@ export default function MusicSettings() {
     }
   }
 
+  const handleTestMusic = () => {
+    const testUrl = "https://www2.cs.uic.edu/~i101/SoundFiles/StarWars3.mp3"
+    console.log("Setting test music URL:", testUrl)
+    setBackgroundMusic(testUrl)
+    setMusicUrl("")
+    setUrlError(null)
+  }
+
   const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0]
     if (file) {
       const fileUrl = URL.createObjectURL(file)
+      console.log("Setting file URL:", fileUrl)
       setBackgroundMusic(fileUrl)
     }
   }
 
   const handleRemoveMusic = () => {
+    console.log("Removing background music")
     setBackgroundMusic("")
     setIsMusicPlaying(false)
   }
@@ -94,8 +105,25 @@ export default function MusicSettings() {
             >
               <Trash2 size={16} />
             </Button>
+            <span className="text-sm text-muted-foreground truncate">
+              {backgroundMusic}
+            </span>
           </div>
         )}
+
+        <div className="space-y-2">
+          <Label>Test Music</Label>
+          <Button
+            variant="outline"
+            onClick={handleTestMusic}
+            className="w-full"
+          >
+            Try Sample Music
+          </Button>
+          <p className="text-xs text-muted-foreground">
+            Click to test with a sample music file
+          </p>
+        </div>
 
         <div className="space-y-2">
           <Label htmlFor="music-url">Music URL</Label>
