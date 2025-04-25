@@ -13,6 +13,7 @@ import BackgroundSettings from "@/components/settings/background-settings"
 import AppearanceSettings from "@/components/settings/appearance-settings"
 import AboutSection from "@/components/settings/about-section"
 import ResetSettings from "@/components/settings/reset-settings"
+import MusicSettings from "@/components/settings/music-settings"
 
 export default function SettingsPanel() {
   // State hooks
@@ -112,6 +113,9 @@ export default function SettingsPanel() {
 
               {/* Background Settings */}
               <BackgroundSettings />
+
+              {/* Music Settings */}
+              <MusicSettings />
 
               {/* Appearance Settings */}
               <AppearanceSettings />

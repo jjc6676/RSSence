@@ -3,7 +3,8 @@ import "./globals.css"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
-import Analytics from "@/components/analytics"
+import { FeedProvider } from "@/context/feed-context"
+import AudioPlayer from "@/components/audio-player"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -20,9 +21,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          {children}
-          <Analytics />
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <FeedProvider>
+            <AudioPlayer />
+            {children}
+          </FeedProvider>
         </ThemeProvider>
       </body>
     </html>

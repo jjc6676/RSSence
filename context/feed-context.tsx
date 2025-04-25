@@ -49,6 +49,12 @@ interface FeedContextType {
   setHideExtraUI: (hide: boolean) => void
   setFeeds: (feeds: string[]) => void
   refreshFeeds: () => void
+  backgroundMusic: string
+  setBackgroundMusic: (url: string) => void
+  isMusicPlaying: boolean
+  setIsMusicPlaying: (playing: boolean) => void
+  musicVolume: number
+  setMusicVolume: (volume: number) => void
 }
 
 const FeedContext = createContext<FeedContextType | undefined>(undefined)
@@ -110,6 +116,9 @@ export function FeedProvider({ children }: { children: ReactNode }) {
   const [hideExtraUI, setHideExtraUI] = useState(false) // State for hiding extra UI elements, default to false (off)
   const { theme, setTheme } = useTheme()
   const [lastFetchTime, setLastFetchTime] = useState(0) // Track last fetch time to prevent too frequent refreshes
+  const [backgroundMusic, setBackgroundMusic] = useState("")
+  const [isMusicPlaying, setIsMusicPlaying] = useState(false)
+  const [musicVolume, setMusicVolume] = useState(50)
 
   // Load saved feeds and preferences from localStorage on mount
   useEffect(() => {
@@ -129,6 +138,9 @@ export function FeedProvider({ children }: { children: ReactNode }) {
     setContentSize(getFromLocalStorage<number>("rss-visualizer-content-size", 100))
     setClockSize(getFromLocalStorage<number>("rss-visualizer-clock-size", 100))
     setHideExtraUI(getFromLocalStorage<boolean>("rss-visualizer-hide-extra-ui", false)) // Default to false (off)
+    setBackgroundMusic(getFromLocalStorage<string>("rss-visualizer-background-music", ""))
+    setIsMusicPlaying(getFromLocalStorage<boolean>("rss-visualizer-is-music-playing", false))
+    setMusicVolume(getFromLocalStorage<number>("rss-visualizer-music-volume", 50))
   }, [])
 
   // Save feeds to localStorage when they change
@@ -194,6 +206,19 @@ export function FeedProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     setInLocalStorage("rss-visualizer-hide-extra-ui", hideExtraUI)
   }, [hideExtraUI])
+
+  // Save music preferences to localStorage when they change
+  useEffect(() => {
+    setInLocalStorage("rss-visualizer-background-music", backgroundMusic)
+  }, [backgroundMusic])
+
+  useEffect(() => {
+    setInLocalStorage("rss-visualizer-is-music-playing", isMusicPlaying)
+  }, [isMusicPlaying])
+
+  useEffect(() => {
+    setInLocalStorage("rss-visualizer-music-volume", musicVolume)
+  }, [musicVolume])
 
   // Apply sorting to feed items when sort order or raw items change
   useEffect(() => {
@@ -397,6 +422,12 @@ export function FeedProvider({ children }: { children: ReactNode }) {
       setHideExtraUI,
       setFeeds,
       refreshFeeds,
+      backgroundMusic,
+      setBackgroundMusic,
+      isMusicPlaying,
+      setIsMusicPlaying,
+      musicVolume,
+      setMusicVolume,
     }),
     [
       feeds,
@@ -417,6 +448,9 @@ export function FeedProvider({ children }: { children: ReactNode }) {
       hideExtraUI,
       addFeed,
       removeFeed,
+      backgroundMusic,
+      isMusicPlaying,
+      musicVolume,
     ],
   )
 
