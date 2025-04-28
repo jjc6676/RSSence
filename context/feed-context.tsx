@@ -116,7 +116,7 @@ export function FeedProvider({ children }: { children: ReactNode }) {
   const [hideExtraUI, setHideExtraUI] = useState(false) // State for hiding extra UI elements, default to false (off)
   const { theme, setTheme } = useTheme()
   const [lastFetchTime, setLastFetchTime] = useState(0) // Track last fetch time to prevent too frequent refreshes
-  const [backgroundMusic, setBackgroundMusic] = useState("")
+  const [backgroundMusic, setBackgroundMusic] = useState("/01. Early Demo - Lobby.mp3")
   const [isMusicPlaying, setIsMusicPlaying] = useState(false)
   const [musicVolume, setMusicVolume] = useState(50)
 
@@ -464,4 +464,3 @@ export function useFeed() {
   }
   return context
 }
-

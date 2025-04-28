@@ -7,11 +7,12 @@ export default function AudioPlayer() {
   const audioContextRef = useRef<AudioContext | null>(null)
   const sourceRef = useRef<AudioBufferSourceNode | null>(null)
   const gainNodeRef = useRef<GainNode | null>(null)
+  const audioBufferRef = useRef<AudioBuffer | null>(null)
   const { backgroundMusic, isMusicPlaying, musicVolume } = useFeed()
 
-  // Initialize audio context
+  // Initialize audio context and gain node
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       audioContextRef.current = new AudioContext()
       gainNodeRef.current = audioContextRef.current.createGain()
       gainNodeRef.current.connect(audioContextRef.current.destination)
@@ -30,75 +31,73 @@ export default function AudioPlayer() {
     }
   }, [musicVolume])
 
-  // Handle source changes
+  // Load audio buffer when backgroundMusic changes
   useEffect(() => {
     if (!backgroundMusic || !audioContextRef.current) return
 
-    const loadAndPlayAudio = async () => {
+    const loadAudio = async () => {
       try {
-        console.log("Loading audio from:", backgroundMusic)
-        
-        // Use the proxy API route
         const proxyUrl = `/api/audio?url=${encodeURIComponent(backgroundMusic)}`
         const response = await fetch(proxyUrl)
-        
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`)
-        }
-        
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`)
         const arrayBuffer = await response.arrayBuffer()
-        const audioBuffer = await audioContextRef.current.decodeAudioData(arrayBuffer)
-        
-        // Stop any existing playback
-        if (sourceRef.current) {
-          sourceRef.current.stop()
-        }
-
-        // Create new source
-        sourceRef.current = audioContextRef.current.createBufferSource()
-        sourceRef.current.buffer = audioBuffer
-        sourceRef.current.loop = true
-        
-        // Connect to gain node
-        sourceRef.current.connect(gainNodeRef.current!)
-        
-        // Start playback if music should be playing
+        const audioBuffer = await audioContextRef.current!.decodeAudioData(arrayBuffer)
+        audioBufferRef.current = audioBuffer
+        // If music should be playing, start playback
         if (isMusicPlaying) {
-          sourceRef.current.start(0)
+          playAudio()
         }
       } catch (error) {
         console.error("Error loading audio:", error)
       }
     }
 
-    loadAndPlayAudio()
+    // Stop any existing playback
+    stopAudio()
+    loadAudio()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [backgroundMusic])
 
-  // Handle play/pause state
+  // Play or stop audio when isMusicPlaying changes
   useEffect(() => {
-    if (!sourceRef.current || !audioContextRef.current) return
+    if (!audioBufferRef.current || !audioContextRef.current) return
 
     if (isMusicPlaying) {
-      // Resume audio context if it was suspended
-      if (audioContextRef.current.state === 'suspended') {
+      // Resume context if needed
+      if (audioContextRef.current.state === "suspended") {
         audioContextRef.current.resume()
       }
-      
-      // If we have a buffer, start playback
-      if (sourceRef.current.buffer) {
-        sourceRef.current.start(0)
-      }
+      playAudio()
     } else {
-      // Stop current playback
-      sourceRef.current.stop()
-      
-      // Create new source for next play
-      sourceRef.current = audioContextRef.current.createBufferSource()
-      sourceRef.current.buffer = sourceRef.current.buffer
-      sourceRef.current.loop = true
-      sourceRef.current.connect(gainNodeRef.current!)
+      stopAudio()
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isMusicPlaying])
 
+  // Helper to play audio
+  function playAudio() {
+    if (!audioContextRef.current || !audioBufferRef.current || !gainNodeRef.current) return
+    // Stop any existing source
+    stopAudio()
+    // Create new source
+    const source = audioContextRef.current.createBufferSource()
+    source.buffer = audioBufferRef.current
+    source.loop = true
+    source.connect(gainNodeRef.current)
+    source.start(0)
+    sourceRef.current = source
+  }
+
+  // Helper to stop audio
+  function stopAudio() {
+    if (sourceRef.current) {
+      try {
+        sourceRef.current.stop()
+      } catch (e) {}
+      sourceRef.current.disconnect()
+      sourceRef.current = null
+    }
+  }
+
   return null
-} 
+}
